@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import Keycloak from 'keycloak-js';
 
 @Injectable({
@@ -43,3 +43,4 @@ export class KeycloakService {
     return this.keycloak.token ? Promise.resolve(this.keycloak.token) : Promise.reject('No token available');
   }
 }
+*/

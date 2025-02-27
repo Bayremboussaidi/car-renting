@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service'; // Assuming you have an AuthService for authentication
+
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,41 +7,30 @@ import { AuthService } from './../../services/auth.service'; // Assuming you hav
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isScrolled = false;
+  isMenuOpen = false;
+  @ViewChild('menu', { static: false }) menu!: ElementRef;
+
   navLinks = [
     { path: '/home', display: 'Accueil' },
     { path: '/about', display: 'À propos' },
     { path: '/listcars', display: 'Voitures' },
     { path: '/blogs', display: 'Blogs' },
-    { path: '/contact', display: 'Contact' },
+    { path: '/contact', display: 'Contact' }
   ];
 
-  user: any; // This should be defined based on your AuthService
-  @ViewChild('header') headerRef!: ElementRef;
-  @ViewChild('menu') menuRef!: ElementRef;
+  user: any; // You can fetch the user details from AuthService
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor() {}
 
-  ngOnInit() {
-    //this.user = this.authService.getUser();
-    this.stickyHeader();
-  }
+  ngOnInit() {}
 
-  stickyHeader() {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
-        this.headerRef.nativeElement.classList.add('sticky__header');
-      } else {
-        this.headerRef.nativeElement.classList.remove('sticky__header');
-      }
-    });
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 80;
   }
 
   toggleMenu() {
-    this.menuRef.nativeElement.classList.toggle('menu__active');
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/']);
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

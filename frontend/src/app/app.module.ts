@@ -197,14 +197,17 @@ import { CardetailsAComponent } from './ADMIN/cardetails-a/cardetails-a.componen
 import { CarDetaComponent } from './ADMIN/car-deta/car-deta.component';
 
 // ✅ Keycloak Imports
-import { KeycloakService } from './services/keycloak/keycloak.service';
+//import { KeycloakService } from './services/keycloak/keycloak.service';
 import { HttpTokenInterceptor } from './services/interceptor/http-token';
 import { NotificationComponent } from './components/notification/notification.component';
+import { TitanComponent } from './components/titan/titan.component';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { BecomeDriverComponent } from './components/become-driver/become-driver.component';
 
 // ✅ Keycloak Initialization Function
-export function kcFactory(kcService: KeycloakService) {
+/*export function kcFactory(kcService: KeycloakService) {
   return () => kcService.init();
-}
+}*/
 
 @NgModule({
   declarations: [
@@ -248,6 +251,9 @@ export function kcFactory(kcService: KeycloakService) {
     CardetailsAComponent,
     CarDetaComponent,
     NotificationComponent,
+    TitanComponent,
+    TopMenuComponent,
+    BecomeDriverComponent,
   ],
   imports: [
     BrowserModule,
@@ -269,13 +275,8 @@ export function kcFactory(kcService: KeycloakService) {
   ],
   providers: [
     HttpClient,
-    KeycloakService, // ✅ Added KeycloakService
-    {
-      provide: APP_INITIALIZER,
-      useFactory: kcFactory,
-      deps: [KeycloakService],
-      multi: true
-    },
+    //KeycloakService,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpTokenInterceptor,
