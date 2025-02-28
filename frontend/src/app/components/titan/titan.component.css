@@ -53,17 +53,17 @@
 .nav__link {
   display: block;
   padding: 1rem;
-  transition: background-color 0.3s;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   color: var(--white-color);
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  transition: .3s;
 }
 
+/* Hover Effect - Changes text color to blue */
 .nav__link:hover {
   background-color: var(--black-color-light);
-  color: #fff;
+  color: blue; /* Text turns blue on hover */
 }
 
 /* Underline Hover Effect for Specific Links */
@@ -73,13 +73,13 @@
   inset: calc(100% - 3px) 0 0 0; /* 3px = the thickness */
   background: #ce4f20; /* the color */
   scale: 0 1;
-  transition: .3s, translate 0s .3s;
+  transition: 0.3s, translate 0s 0.3s;
 }
 
 .nav__link:hover:before {
   scale: 1;
   translate: 0;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 /* Dropdown Styling */
