@@ -120,14 +120,25 @@ public class VoitureController {
 
 package com.example.comparateur.Controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
 import com.example.comparateur.Entity.Voiture;
 import com.example.comparateur.Service.VoitureService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/api/voitures")
@@ -153,7 +164,7 @@ public class VoitureController {
             @RequestParam("voiture") String voitureJson, // ✅ Accepts Voiture as JSON string
             @RequestPart(value = "file", required = false) MultipartFile file) {
         try {
-            Voiture voiture = objectMapper.readValue(voitureJson, Voiture.class); // ✅ Convert JSON to Voiture object
+            Voiture voiture = objectMapper.readValue(voitureJson, Voiture.class);
             return voitureService.updateVoiture(id, voiture, file);
         } catch (Exception e) {
             return ResponseEntity.status(400).body("Invalid JSON format: " + e.getMessage());
