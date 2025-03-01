@@ -10,19 +10,19 @@ export class BecomeDriverComponent implements OnInit {
 
   testimonials = [
     {
-      text: "I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.",
-      author: "Jack Woods",
-      company: "SomeCompany INC, CEO"
+      text: "Vous voulez gagner de l'argent avec nous ? Alors ne soyez pas en retard.",
+      author: "",
+      company: "myloc"
     },
     {
-      text: "I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.",
-      author: "Jim Stone",
-      company: "SomeCompany INC, CEO"
+      text: "Les opportunités comme celle-ci ne se présentent pas deux fois. Réservez sans attendre !.",
+      author: "",
+      company: "myloc"
     },
     {
-      text: "I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.",
-      author: "Adele Snow",
-      company: "SomeCompany INC, CEO"
+      text: "Confort, puissance, élégance… Trouvez la voiture qui vous correspond !",
+      author: "",
+      company: "myloc"
     }
   ];
 

@@ -29,12 +29,19 @@
   width: 100%;
 }
 
+/* Logo Styling */
 .nav__logo {
-  font-weight: var(--font-semi-bold);
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  font-weight: var(--font-semi-bold);
   color: var(--white-color);
+}
+
+.nav__logo-img {
+  width: 40px;  /* Adjust as needed */
+  height: auto;
+  object-fit: contain;
 }
 
 /* Mobile Toggle */

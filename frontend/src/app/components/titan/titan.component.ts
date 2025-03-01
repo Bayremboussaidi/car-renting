@@ -19,7 +19,7 @@ export class TitanComponent {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const maxOpacity = 1; // Maximum opacity when scrolling down
     const minOpacity = 0; // Fully transparent at the top
-    const scrollFactor = 300; // Distance required for full opacity
+    const scrollFactor = 400; // Distance required for full opacity
 
     // Calculate opacity based on scroll position
     this.scrollOpacity = Math.min(maxOpacity, (scrollTop / scrollFactor));
