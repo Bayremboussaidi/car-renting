@@ -2,7 +2,7 @@ package com.example.comparateur.Entity;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +32,8 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "voiture_id")
-    @JsonIgnore // ✅ Prevent infinite recursion
+    /*@JsonIgnore*/
+    @JsonManagedReference
     private Voiture voiture;
 
     private String username;
